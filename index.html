@@ -318,6 +318,7 @@
         if (nodes.length === 2){
           newconstellation.stars = nodes.splice();
           newconstellation.edges.push([nodes[0], nodes[1]]);
+          newconstellation.name = nameGen();
           return newconstellation;
         }
         let triangulation = [];
@@ -410,6 +411,7 @@
         }
         newconstellation.stars = nodes;
         newconstellation.edges = links;
+        newconstellation.name = nameGen();
         return newconstellation;
       }
 
@@ -536,6 +538,7 @@
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + thingsLatin[things] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
           names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
         }
+        console.log(names);
         return names;
     }
     </script>
