@@ -130,17 +130,21 @@
       }
 
       function updateUI(){
+
         document.getElementById('stardensity_Value').innerText = STARDENSITY;
         document.getElementById('numconstellations_Value').innerText = NUM_CONSTELLATIONS;
         document.getElementById('minconstellationsize_Value').innerText = MIN_CONSTELLATION_SIZE;
         document.getElementById('constellationsizerange_Value').innerText = CONSTELLATION_SIZE_RANGE.value;
         document.getElementById('constellationdistance_Value').innerText = CONSTELLATION_DISTANCE.value;
         redraw();
+
         for (i = 0; i < NUM_CONSTELLATIONS; i++) {
-          current_constillation_name = constellations[i].name;
-          constellations_output = constellations[i].name = "</br>";
+          current_constellation_name = constellations[i].name;
+          constellations_output = constellations_output + current_constellation_name.name = "</br>";
         }
-        document.getElementById('constellation_output').getElementsByClassName('control')[i].innerHTML = constellations_output;
+
+        let controlDivOutputForConstellations = document.querySelector('#constellation_output .control');
+        controlDivOutputForConstellations.innerHTML = constellations_output;
       }
 
       function updateJSON(){
