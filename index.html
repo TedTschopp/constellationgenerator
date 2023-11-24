@@ -93,7 +93,8 @@
         canvasSize = document.getElementById("canvassize");
         invertColours = document.getElementById("invertcolours");
         newSeed();
-        createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+        let canvas = createCanvas(CANVAS_SIZE, CANVAS_SIZE);
+        canvas.parent('canvas');
         onInput();
         noLoop();
       }
@@ -689,6 +690,10 @@
     </script>
   </head>
   <body>
+    <div ID="canvas">
+
+
+    </div>
     <div class="controls">
       <div class="group" id="generatorcontrols">
         <div class="header">
