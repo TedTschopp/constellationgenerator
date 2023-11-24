@@ -716,14 +716,12 @@
           JSON
         </div>
         <div class="control">
-          <div class="input-group">
-            <textarea class="form-control custom-control" rows="3" style="resize:none"></textarea>     
-            <span class="input-group-addon btn btn-primary"><i class="bi bi-copy"></i></span>
-          </div>
+            <div class="input-group">
+              <span class="input-group-text">With textarea</span>
+              <textarea rows="3" cols="20" id="inpjson" class="form-control" aria-label="With textarea"></textarea>
+              <span class="input-group-addon btn btn-primary"><i class="bi bi-copy"></i>copy</span>
+            </div>
 
-
-          <textarea rows="3" cols="20" id="inpjson">
-          </textarea>
           Copy this to save current settings.
           Paste and press 'load' to restore them.
           <input type="button" name="btnloadjson", value="Load", onclick="readJSON()">
