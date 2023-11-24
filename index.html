@@ -725,14 +725,14 @@
           JSON
         </div>
         <div class="control">
-            <div class="input-group">
-              <textarea rows="3" cols="20" id="inpjson" class="form-control" aria-label="With textarea"></textarea>
-              <span class="input-group-addon btn btn-primary"><i class="bi bi-copy">&#xF759;</i>copy</span>
-            </div>
+          <textarea rows="3" cols="20" id="inpjson" class="form-control" aria-label="With textarea"></textarea>
+              <div class="input-group">
+                <span class="input-group-addon btn btn-primary"><i class="bi bi-copy">&#xF759;</i>copy</span>
+                <span class="input-group-addon btn btn-primary" name="btnloadjson" onclick="readJSON()"><i class="bi bi-copy">&#xF759;</i>Load</span>
+              </div>
 
           Copy this to save current settings.
           Paste and press 'load' to restore them.
-          <input type="button" name="btnloadjson", value="Load", onclick="readJSON()">
         </div>
       </div>
       <div class="group" id="constellation_output">
