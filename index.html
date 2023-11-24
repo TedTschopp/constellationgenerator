@@ -645,7 +645,7 @@
 
         if (Math.random() > 0.5) {
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + animalsLatin[animals] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
-          names = " The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
+          names = " The " + prefixEnglish[prefix] + " " + animalsEnglish[animals] + "</br>";
 
           if(INCLUDE_LATIN) {
             names += " (" + prefixLatin[prefix] + " " + animalsLatin[animals] + ")";
@@ -661,7 +661,7 @@
 
         } else {
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + thingsLatin[things] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
-          names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
+          names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things] + "</br>";
 
           if(INCLUDE_LATIN) {
             names += " (" + prefixLatin[prefix] + " " + thingsLatin[things] + ")";
