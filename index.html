@@ -134,8 +134,8 @@
         document.getElementById('stardensity_Value').innerText = STARDENSITY;
         document.getElementById('numconstellations_Value').innerText = NUM_CONSTELLATIONS;
         document.getElementById('minconstellationsize_Value').innerText = MIN_CONSTELLATION_SIZE;
-        document.getElementById('constellationsizerange_Value').innerText = CONSTELLATION_SIZE_RANGE.value;
-        document.getElementById('constellationdistance_Value').innerText = CONSTELLATION_DISTANCE.value;
+        document.getElementById('constellationsizerange_Value').innerText = CONSTELLATION_SIZE_RANGE;
+        document.getElementById('constellationdistance_Value').innerText = Math.log2(CONSTELLATION_DISTANCE * 1024) ;
         redraw();
         var constellations_output =""
         for (i = 0; i < NUM_CONSTELLATIONS; i++) {
