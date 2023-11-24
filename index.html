@@ -647,12 +647,26 @@
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + animalsLatin[animals] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
           names = " The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
 
-          if()
-
+          if(INCLUDE_LATIN) {
+            names += " (" + animalsLatin[animals] + ")";
+          } elseif(INCLUDE_NORSE) {
+            names += " (" + animalsNorse[animals] + ")";
+          } elseif(INCLUDE_ARABIC) {
+            names += " (" + animalsArabic[animals] + ")";
+          }
 
         } else {
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + thingsLatin[things] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
           names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
+
+          if(INCLUDE_LATIN) {
+            names += " (" + thingsLatin[things] + ")";
+          } elseif(INCLUDE_NORSE) {
+            names += " (" + thingsNorse[things] + ")";
+          } elseif(INCLUDE_ARABIC) {
+            names += " (" + thingsArabic[things] + ")";
+          }
+          
         }
         return names;
     }
