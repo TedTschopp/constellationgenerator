@@ -137,7 +137,7 @@
         document.getElementById('constellationsizerange_Value').innerText = CONSTELLATION_SIZE_RANGE.value;
         document.getElementById('constellationdistance_Value').innerText = CONSTELLATION_DISTANCE.value;
         redraw();
-
+        var constellations_output =""
         for (i = 0; i < NUM_CONSTELLATIONS; i++) {
           current_constellation_name = constellations[i].name;
           constellations_output = constellations_output + current_constellation_name.name + "</br>";
