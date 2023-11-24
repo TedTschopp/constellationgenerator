@@ -125,7 +125,7 @@
         document.getElementById('numconstellations_Value').innerText = NUM_CONSTELLATIONS;
         document.getElementById('minconstellationsize_Value').innerText = MIN_CONSTELLATION_SIZE;
         document.getElementById('constellationsizerange_Value').innerText = CONSTELLATION_SIZE_RANGE;
-        document.getElementById('constellationdistance_Value').innerText = CONSTELLATION_DISTANCE;
+        document.getElementById('constellationdistance_Value').innerText = Math.log2(CONSTELLATION_DISTANCE * 1024) ;
 
         resizeCanvas(CANVAS_SIZE, CANVAS_SIZE);
         stars = generateStars();
@@ -270,10 +270,27 @@
         this.x = cart.x;
         this.y = cart.y;
         if (INVERTED_COLOURS){
+          
           this.color = color(0,0,0);
         }else{
           this.color = color(255,255,255);
         }
+      }
+
+      /**
+       * This function calculates the inverted RGB color.
+       * @param {number} r - The red component of the color.
+       * @param {number} g - The green component of the color.
+       * @param {number} b - The blue component of the color.
+       * @returns {Array} An array containing the inverted RGB color.
+
+       let r = 0, g = 0, b = 0; // replace with your actual RGB values
+      let invertedColor = invertColor(r, g, b);
+      this.color = color(invertedColor[0], invertedColor[1], invertedColor[2]);
+
+       */
+      function invertColor(r, g, b) {
+          return [255 - r, 255 - g, 255 - b];
       }
 
       Star.prototype.show = function(){
