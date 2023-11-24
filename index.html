@@ -378,6 +378,7 @@
       Constellation.prototype.prettify = function(){
         let delaunay = this.delaunay(); // Apply Delaunay triangulation to the constellation
         let newConstellation = delaunay.relativeneighbors(); // Apply the relative neighbors algorithm to the triangulated constellation
+        newConstellation.name = this.name; // Copy the name of the original constellation
         return newConstellation; // Return the new, "prettified" constellation
       }
 
@@ -626,7 +627,6 @@
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + thingsLatin[things] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
           names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
         }
-        console.log("name = " + names);
         return names;
     }
     </script>
