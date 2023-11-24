@@ -502,9 +502,6 @@
       function distance(p1, p2){
         return sqrt(pow((p1.x-p2.x),2) + pow((p1.y-p2.y),2));
       }
-    </script>
-
-  <script>
 
     var greekNames= ["Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"];
     var greekLetters = ["ά","β","γ","δ","έ","ζ","ή","θ","ι","κ","λ","μ","ν","ξ","ό","π","ρ","σ","τ","ύ","φ","χ","ψ","ω"];
@@ -538,7 +535,7 @@
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + thingsLatin[things] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
           names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
         }
-        console.log(names);
+        console.log("name = " + names);
         return names;
     }
     </script>
