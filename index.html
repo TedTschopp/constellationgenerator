@@ -648,11 +648,15 @@
           names = " The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
 
           if(INCLUDE_LATIN) {
-            names += " (" + animalsLatin[animals] + ")";
-          } else if(INCLUDE_NORSE) {
-            names += " (" + animalsNorse[animals] + ")";
-          } else if(INCLUDE_ARABIC) {
-            names += " (" + animalsArabic[animals] + ")";
+            names += " (" + prefixLatin[prefix] + " " + animalsLatin[animals] + ")";
+          } 
+
+          if(INCLUDE_NORSE) {
+            names += " ("  + prefixNorse[prefix] + " " +  animalsNorse[animals] + ")";
+          }
+
+          if(INCLUDE_ARABIC) {
+            names += " ("  + prefixArabic[prefix] + " " +  animalsArabic[animals] + ")";
           }
 
         } else {
@@ -660,11 +664,13 @@
           names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
 
           if(INCLUDE_LATIN) {
-            names += " (" + thingsLatin[things] + ")";
-          } else if(INCLUDE_NORSE) {
-            names += " (" + thingsNorse[things] + ")";
-          } else if(INCLUDE_ARABIC) {
-            names += " (" + thingsArabic[things] + ")";
+            names += " (" + prefixLatin[prefix] + " " + thingsLatin[things] + ")";
+          }
+          if(INCLUDE_NORSE) {
+            names += " (" + prefixNorse[prefix] + " " + thingsNorse[things] + ")";
+          }
+          if(INCLUDE_ARABIC) {
+            names += " (" + prefixArabic[prefix] + " " + thingsArabic[things] + ")";
           }
 
         }
