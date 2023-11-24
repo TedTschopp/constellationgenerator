@@ -165,46 +165,69 @@
         return stars
       }
 
+      /**
+       * This function generates constellations from a given set of stars.
+       * @param {Array} stars - An array of stars from which constellations will be generated.
+       * @returns {Array} An array of generated constellations.
+       */
       function generateConstellations(stars){
-        let constellations = [];
-        let remaining = stars.slice();
+        let constellations = []; // Array to hold the generated constellations
+        let remaining = stars.slice(); // Copy of the stars array to keep track of remaining stars
+
+        // While we haven't reached the desired number of constellations and there are still stars left
         while (constellations.length < NUM_CONSTELLATIONS && remaining.length > 0){
-          let constellation = new Constellation();
-          constellation.stars.push(remaining.pop());
+          let constellation = new Constellation(); // Create a new constellation
+          constellation.stars.push(remaining.pop()); // Add a star to the constellation
+
+          // Determine the size of the constellation
           var CONSTELLATION_SIZE = Math.round(random(CONSTELLATION_SIZE_RANGE)) + MIN_CONSTELLATION_SIZE;
+
+          // While the constellation doesn't have enough stars
           while (constellation.stars.length < CONSTELLATION_SIZE){
-            let selected = random(constellation.stars);
-            let found = false;
+            let selected = random(constellation.stars); // Select a random star from the constellation
+            let found = false; // Flag to indicate if a suitable star was found
+
+            // Loop over the remaining stars
             for (let i = 0; i < remaining.length; i++){
-              let star = remaining[i];
-              let inrange = selected.projectedDistance(star) < CONSTELLATION_DISTANCE;
-              let nointersect = true;
+              let star = remaining[i]; // Current star
+              let inrange = selected.projectedDistance(star) < CONSTELLATION_DISTANCE; // Check if the star is in range
+              let nointersect = true; // Flag to indicate if the star intersects with any other constellation
+
+              // Loop over the other constellations
               for (let otherconst of constellations){
+                // Check if the star intersects with the other constellation
                 if (otherconst.intersects(selected, star)){
                   nointersect = false;
                 }
               }
+
+              // If the star is in range and doesn't intersect with any other constellation
               if (inrange && nointersect){
-                constellation.stars.push(star);
-                constellation.edges.push([selected, star]);
-                remaining.splice(i, 1);
-                found = true;
+                constellation.stars.push(star); // Add the star to the constellation
+                constellation.edges.push([selected, star]); // Add an edge between the selected star and the new star
+                constellation.name = nameGen(); // Generate a name for the constellation
+                remaining.splice(i, 1); // Remove the star from the remaining stars
+                found = true; // Set the flag to true
                 break;
               }
             }
+
+            // If no suitable star was found, break the loop
             if (!found){
               break;
             }
           }
+
+          // If the constellations should be prettified
           if (PRETTIFY_CONSTELLATIONS){
-            constellations.push(constellation.prettify());
+            constellations.push(constellation.prettify()); // Add the prettified constellation to the array
           } else{
-            constellations.push(constellation);
+            constellations.push(constellation); // Add the constellation to the array
           }
         }
-        return constellations;
-      }
 
+        return constellations; // Return the array of constellations
+      }
 
 
       function polarToCartesian(angle, radius){
@@ -290,22 +313,36 @@
         }
       }
 
+      /**
+       * This method checks if a line between two stars intersects with any edge in the constellation.
+       * @param {Object} star1 - The first star, an object with x and y properties representing its coordinates.
+       * @param {Object} star2 - The second star, an object with x and y properties representing its coordinates.
+       * @returns {boolean} Returns true if the line between star1 and star2 intersects with any edge in the constellation, otherwise returns false.
+       */
       Constellation.prototype.intersects = function(star1, star2){
+        // Loop over each edge in the constellation
         for (let edge of this.edges){
+          // Check if the line between star1 and star2 intersects with the current edge
           if (intersects(
             star1.x, star1.y, star2.x, star2.y,
             edge[0].x, edge[0].y, edge[1].x, edge[1].y
           )){
+            // If it does, return true
             return true;
           }
         }
+        // If no intersection was found after checking all edges, return false
         return false;
       }
 
+      /**
+       * This method prettifies the constellation by applying the Delaunay triangulation and relative neighbors algorithm.
+       * @returns {Object} Returns a new constellation object that has been "prettified".
+       */
       Constellation.prototype.prettify = function(){
-        let delaunay = this.delaunay();
-        newconstellation = delaunay.relativeneighbors();
-        return newconstellation;
+        let delaunay = this.delaunay(); // Apply Delaunay triangulation to the constellation
+        let newConstellation = delaunay.relativeNeighbors(); // Apply the relative neighbors algorithm to the triangulated constellation
+        return newConstellation; // Return the new, "prettified" constellation
       }
 
       Constellation.prototype.delaunay = function(){
@@ -318,7 +355,6 @@
         if (nodes.length === 2){
           newconstellation.stars = nodes.splice();
           newconstellation.edges.push([nodes[0], nodes[1]]);
-          newconstellation.name = nameGen();
           return newconstellation;
         }
         let triangulation = [];
@@ -411,7 +447,7 @@
         }
         newconstellation.stars = nodes;
         newconstellation.edges = links;
-        newconstellation.name = nameGen();
+
         return newconstellation;
       }
 
@@ -437,7 +473,7 @@
         newconstellation = new Constellation();
         newconstellation.stars = this.stars.slice();
         newconstellation.edges = graphlinks;
-        newconstellation.name = nameGen();
+
         return newconstellation;
       }
 
