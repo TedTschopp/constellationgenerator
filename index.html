@@ -85,6 +85,12 @@
         constellationSizeRange = document.getElementById("constellationsizerange");
         constellationDistance = document.getElementById("constellationdistance");
         prettifyConstellations = document.getElementById("prettifyconstellations");
+
+        LatinNames = document.getElementById("LatinNames");
+        NorseNames = document.getElementById("NorseNames");
+        ArabicNames = document.getElementById("ArabicNames");
+        CulturalSymbolism = document.getElementById("CulturalSymbolism");
+
         canvasSize = document.getElementById("canvassize");
         invertColours = document.getElementById("invertcolours");
         newSeed();
@@ -132,6 +138,11 @@
         CONSTELLATION_SIZE_RANGE = parseInt(constellationSizeRange.value);
         CONSTELLATION_DISTANCE = pow(2, constellationDistance.value)/1024;
         PRETTIFY_CONSTELLATIONS = prettifyConstellations.checked;
+        INCLUDE_LATIN = LatinNames.checked
+        INCLUDE_NORSE = NorseNames.checked
+        INCLUDE_ARABIC = ArabicNames.checked
+        INCLUDE_CULTURAL_SYMBOLISM = CulturalSymbolism.checked
+
         CANVAS_SIZE = canvasSize.value;
 
         resizeCanvas(CANVAS_SIZE, CANVAS_SIZE);
@@ -636,6 +647,9 @@
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + animalsLatin[animals] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
           names = " The " + prefixEnglish[prefix] + " " + animalsEnglish[animals];
 
+          if()
+
+
         } else {
           names = greekNames[greek] + "("+ greekLetters[greek]+") " + thingsLatin[things] + " " + prefixLatin[prefix]+ " from the constellation The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
           names = "The " + prefixEnglish[prefix] + " " + thingsEnglish[things];
@@ -691,7 +705,7 @@
             <legend>Constellation Cultural Origins - Beta</legend>
             <label>
               Include English Names
-              <input type="checkbox" id="EnglishNames" checked onchange="onInput()">
+              <input type="checkbox" disabled id="EnglishNames" checked onchange="onInput()">
             </label>
             <label>
               Include Latin Names
@@ -707,7 +721,7 @@
             </label>
             <label>
               Include Cultural Symbolism
-              <input type="checkbox" id="Cultural Symbolism" checked onchange="onInput()">
+              <input type="checkbox" id="CulturalSymbolism" checked onchange="onInput()">
             </label>            
           </fieldset>
         </div>
@@ -760,7 +774,6 @@
         copyText.select();
         copyText.setSelectionRange(0, 99999); // For mobile devices
         document.execCommand("copy");
-        alert("Copied the text: " + copyText.value);
       });
     </script>
   </body>
