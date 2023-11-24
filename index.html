@@ -270,7 +270,6 @@
         this.x = cart.x;
         this.y = cart.y;
         if (INVERTED_COLOURS){
-          
           this.color = color(0,0,0);
         }else{
           this.color = color(255,255,255);
@@ -656,7 +655,7 @@
         <div class="control">
           <label>
             Prettify Constellations
-            <input type="checkbox" id="prettifyconstellations" onchange="onInput()">
+            <input type="checkbox" id="prettifyconstellations" value="checked" onchange="onInput()">
           </label>
         </div>
       </div>
@@ -685,6 +684,13 @@
           Copy this to save current settings.
           Paste and press 'load' to restore them.
           <input type="button" name="btnloadjson", value="Load", onclick="readJSON()">
+        </div>
+      </div>
+      <div class="group" id="constellation_output">
+        <div class="header">
+          Constellations
+        </div>
+        <div class="control">
         </div>
       </div>
     </div>
