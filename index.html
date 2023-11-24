@@ -639,37 +639,41 @@
         <div class="header">
           Generator Controls
         </div>
-        <div class="control">
-          <span>Seed</span>
-          <input type="text" id="inpseed" oninput="onInput()">
-          <input type="button" id="resetseed" value="New Seed" onclick="newSeed()">
-        </div>
-        <div class="control">
-          <span>Star Density: <span id="stardensity_Value"></span></span>
-          <input type="range" min="4" max="12" value="8" step="1e-18" class="slider" id="stardensity" oninput="onInput()">
-        </div>
-        <div class="control">
-          <span>Number of Constellations: <span id="numconstellations_Value"></span></span>
-          <input type="range" min="0" max="24" value="12" class="slider" id="numconstellations" oninput="onInput()">
-        </div>
-        <div class="control">
-          <span>Minimum Stars per Constellation: <span id="minconstellationsize_Value"></span></span>
-          <input type="range" min="2" max="12" value="7" class="slider" id="minconstellationsize" oninput="onInput()">
-        </div>
-        <div class="control">
-          <span>Additional Stars per Constellation: <span id="constellationsizerange_Value"></span></span>
-          <input type="range" min="0" max="6" value="0" class="slider" id="constellationsizerange" oninput="onInput()">
-        </div>
-        <div class="control">
-          <span>Constellation Max Distance: <span id="constellationdistance_Value"></span></span>
-          <input type="range" min="6" max="8.5" value="7.25" step="0.01" class="slider" id="constellationdistance" oninput="onInput()">
-        </div>
-        <div class="control">
-          <label>
-            Prettify Constellations
-            <input type="checkbox" id="prettifyconstellations" value="checked" onchange="onInput()">
-          </label>
-        </div>
+        <fieldset>
+          <legend>Choose your Night Sky's Features</legend>
+          <div class="control">
+            <span>Seed</span>
+            <input type="text" id="inpseed" oninput="onInput()">
+            <input type="button" id="resetseed" value="New Seed" onclick="newSeed()">
+          </div>
+          <div class="control">
+            <span>Star Density: <span id="stardensity_Value"></span></span>
+            <input type="range" min="4" max="12" value="8" step="1e-18" class="slider" id="stardensity" oninput="onInput()">
+          </div>
+          <div class="control">
+            <span>Number of Constellations: <span id="numconstellations_Value"></span></span>
+            <input type="range" min="0" max="24" value="12" class="slider" id="numconstellations" oninput="onInput()">
+          </div>
+          <div class="control">
+            <span>Minimum Stars per Constellation: <span id="minconstellationsize_Value"></span></span>
+            <input type="range" min="2" max="12" value="7" class="slider" id="minconstellationsize" oninput="onInput()">
+          </div>
+          <div class="control">
+            <span>Additional Stars per Constellation: <span id="constellationsizerange_Value"></span></span>
+            <input type="range" min="0" max="6" value="3" class="slider" id="constellationsizerange" oninput="onInput()">
+          </div>
+          <div class="control">
+            <span>Constellation Max Distance: <span id="constellationdistance_Value"></span></span>
+            <input type="range" min="6" max="8.5" value="7.25" step="0.01" class="slider" id="constellationdistance" oninput="onInput()">
+          </div>
+          <div class="control">
+            <label>
+              Prettify Constellations
+              <input type="checkbox" id="prettifyconstellations" checked onchange="onInput()">
+            </label>
+          </div>
+        </fieldset>
+
       </div>
       <div class="group" id="displaycontrols">
         <div class="header">
