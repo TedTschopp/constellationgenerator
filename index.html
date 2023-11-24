@@ -656,7 +656,11 @@
           }
 
           if(INCLUDE_ARABIC) {
-            names += " ("  + prefixArabic[prefix] + " " +  animalsArabic[animals] + ")";
+            names += " ("  + prefixArabicRomanized[prefix] + " " +  animalsArabicRomanized[animals] + ")";
+          }
+          if(INCLUDE_CULTURAL_SYMBOLISM) {
+            names += " [postive]: " + animalsPositiveMeaning[prefix]+"</br>";
+            names += " [negative]: " + animalsPositiveMeaning[prefix];
           }
 
         } else {
@@ -670,7 +674,11 @@
             names += " (" + prefixNorse[prefix] + " " + thingsNorse[things] + ")";
           }
           if(INCLUDE_ARABIC) {
-            names += " (" + prefixArabic[prefix] + " " + thingsArabic[things] + ")";
+            names += " (" + prefixArabicRomanized[prefix] + " " + thingsArabicRomanized[things] + ")";
+          }
+          if(INCLUDE_CULTURAL_SYMBOLISM) {
+            names += " [postive]: " + thingsPositiveMeaning[prefix]+"</br>";
+            names += " [negative]: " + thingsNegativeMeaning[prefix];
           }
 
         }
